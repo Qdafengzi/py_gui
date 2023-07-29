@@ -5,11 +5,11 @@
 
 import sys
 
-from PyQt6 import QtWidgets, QtGui
-from PyQt6.QtWidgets import QApplication
+from PyQt6 import QtGui, QtWidgets
+from PyQt6.QtWidgets import *
 
 
-class MyWidget(QtWidgets.QWidget):
+class MyWidget(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("android ")
@@ -22,7 +22,7 @@ class MyWidget(QtWidgets.QWidget):
         self.grview.setGeometry(0, 0, 300, 300)
         scene = QtWidgets.QGraphicsScene()
         scene.setSceneRect(0,0,200,200)
-        img = QtGui.QPixmap('./img/logo.png')
+        img = QtGui.QPixmap('../img/logo.png')
 
         img1 = img.scaled(200,50)
         qitem1 = QtWidgets.QGraphicsPixmapItem(img1)

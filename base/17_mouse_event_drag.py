@@ -30,17 +30,41 @@ class MyWidget(QtWidgets.QWidget):
         self.label = QtWidgets.QLabel(self)
         self.label.setText("Hello World")
 
-    def mousePressEvent(self, a0):
-        if self.isMaximized():
-            self.showNormal()
-        else:
-            self.showMaximized()
+    def mouseReleaseEvent(self, a0):
+        print("鼠标释放")
+        self.move_flag = False
+
+    def mouseMoveEvent(self, event):
+        if self.move_flag:
+            print("鼠标移动")
+            #     移动向量
+            move_x = event.globalPosition().x() - self.mouse_x
+            move_y = event.globalPosition().y() - self.mouse_y
+            print(move_x, move_y)
+            dest_x = self.origin_x + move_x
+            dest_y = self.origin_y + move_y
+            print(dest_x, dest_y)
+            self.move(int(dest_x), int(dest_y))
+
+    def mousePressEvent(self, event):
+        # 鼠标左键按下
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.move_flag = True
+            self.mouse_x = event.globalPosition().x()
+            self.mouse_y = event.globalPosition().y()
+
+            print(self.mouse_x)
+
+            self.origin_x = self.x()
+            self.origin_y = self.y()
+            print(self.origin_x)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     Form = MyWidget()
 
-    # icon = QIcon("./img/logo.png")
+    # icon = QIcon("../img/logo.png")
     # Form.setWindowIcon(icon)
     # Form.setWindowTitle("aaaa")
     # Form.setWindowOpacity(0.4)

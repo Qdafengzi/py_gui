@@ -27,11 +27,11 @@ class MyWidget(QtWidgets.QWidget):
         self.listwidget.removeItemWidget(item)
 
         self.listwidget.addItem("X")
-        self.listwidget.insertItem(0, self.getItem("", "./img/logo.png"))
+        self.listwidget.insertItem(0, self.getItem("", "../img/logo.png"))
 
         item1 = self.listwidget.item(3)
         item1.setText("Ok")
-        item1.setIcon(QtGui.QIcon("./img/logo.png"))
+        item1.setIcon(QtGui.QIcon("../img/logo.png"))
 
         # self.listwidget.setFlow(QtWidgets.QListView.Flow.LeftToRight)  # 改成水平顯示
 

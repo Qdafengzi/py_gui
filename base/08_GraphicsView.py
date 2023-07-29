@@ -27,7 +27,7 @@ class MyWidget(QtWidgets.QWidget):
 
         img_w = 120  # 顯示圖片的寬度
         img_h = 160
-        img = QtGui.QPixmap('./img/logo.png')
+        img = QtGui.QPixmap('../img/logo.png')
         img = img.scaled(img_w, img_h)
 
         x = 20  # 左上角 x 座標
